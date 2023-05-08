@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet" />
+  <link href="./css/main.css" rel="stylesheet" />
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="container">
+    <input type="text" placeholder="Name" class="field__input" oninput="updateName(this.value)">
+    <input type="text" placeholder="Position" class="field__input" oninput="updatePosition(this.value)">
+    <input type="text" placeholder="Email" class="field__input" oninput="updateEmail(this.value)">
+    <input type="text" placeholder="Mobile" class="field__input" oninput="updatePhone(this.value)">
+
+    <button onclick="convertToImage()">Konwertuj na obraz</button>
+
+
+    <div id="my-element" class="v8_41">
+      <div class="v8_42"></div>
+      <div class="v8_43"></div>
+      <div class="v8_44"></div>
+      <div class="v8_45"></div><span class="v8_72" id="name">JAN KOWALSKI</span><span class="v8_73" id="position">CEO
+        Automate First
+        Business</span><span class="v8_74" id="email">j.kowalski@afb.com</span><span class="v8_75"
+        id="mobile">000-000-000</span>
+      <div class="v8_90"></div>
+      <div class="v8_91"></div>
+      <div class="v8_92"></div>
+    </div>
+  </div>
+
+  <script>
+    function updateName(name) {
+      document.getElementById('name').textContent = name;
+    }
+
+    function updatePosition(position) {
+      document.getElementById('position').textContent = position;
+    }
+    function updateEmail(email) {
+      document.getElementById('email').textContent = email;
+    }
+    function updatePhone(mobile) {
+      document.getElementById('mobile').textContent = mobile;
+    }
+
+
+    function convertToImage() {
+      const element = document.getElementById('my-element');
+      html2canvas(element).then(function (canvas) {
+        const image = canvas.toDataURL();
+        const link = document.createElement('a');
+        link.download = 'image.png';
+        link.href = image;
+        link.click();
+      });
+    }
+  </script>
+</body>
+
+</html>
