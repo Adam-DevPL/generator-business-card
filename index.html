@@ -50,7 +50,7 @@
 
     function convertToImage() {
       const element = document.getElementById('my-element');
-      html2canvas(element).then(function (canvas) {
+      html2canvas(element, { backgroundColor: null }).then(function (canvas) {
         const image = canvas.toDataURL();
         const link = document.createElement('a');
         link.download = 'image.png';
